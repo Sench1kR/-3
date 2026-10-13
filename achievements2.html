@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наши Достижения — Точка Роста</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Точка Роста</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="achievements2.html" class="active">Наши достижения</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+        
+        <div class="global-admin-panel">
+            <button id="auth-btn" class="btn-admin-header">Войти как админ</button>
+            <button id="logout-btn" class="btn-logout-header" style="display: none;">Выйти</button>
+            <button id="save-btn" class="btn-save-header" style="display: none;">Сохранить страницу</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="main-section" id="page-achievements">
+            
+            <div class="section-header">
+                <h2>Наши Достижения</h2>
+                <p class="subtitle">Мы гордимся успехами наших учеников и преподавателей.</p>
+            </div>
+
+            <!-- Контейнер карточек (СТРУКТУРА НЕ РЕДАКТИРУЕТСЯ, только тексты внутри) -->
+            <div class="grid-container">
+                
+                <div class="achieve-card">
+                    <div class="card-icon">🏆</div>
+                    <!-- Класс editable-zone теперь строго на текстовом блоке -->
+                    <div class="card-text editable-zone">
+                        <h3>Победители олимпиад</h3>
+                        <p>15 учеников заняли призовые места на городском этапе Всероссийской олимпиады школьников.</p>
+                    </div>
+                </div>
+
+                <div class="achieve-card">
+                    <div class="card-icon">📈</div>
+                    <div class="card-text editable-zone">
+                        <h3>Высокие баллы</h3>
+                        <p>Средний балл наших выпускников по профильным предметам выше среднего по городу.</p>
+                    </div>
+                </div>
+
+                <div class="achieve-card">
+                    <div class="card-icon">⚽</div>
+                    <div class="card-text editable-zone">
+                        <h3>Спортивные победы</h3>
+                        <p>Наша футбольная команда заняла 1-е место в районном турнире.</p>
+                    </div>
+                </div>
+
+                <div class="achieve-card">
+                    <div class="card-icon">💡</div>
+                    <div class="card-text editable-zone">
+                        <h3>Инновации</h3>
+                        <p>Школа получила грант на открытие новой современной ИТ-лаборатории.</p>
+                    </div>
+                </div>
+
+            </div>
+            
+        </section>
+    </main>
+
+    <footer>
+        <p>© Точка Роста Коммунарской школы №3. 2026. Все права защищены.</p>
+    </footer>
+
+    <script src="admin.js"></script>
+</body>
+</html>

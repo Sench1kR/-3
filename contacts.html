@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты — Точка Роста</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Точка Роста</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="achievements2.html">Наши достижения</a></li>
+                <li><a href="contacts.html" class="active">Контакты</a></li>
+            </ul>
+        </nav>
+        
+        <div class="global-admin-panel">
+            <button id="auth-btn" class="btn-admin-header">Войти как admin</button>
+            <button id="logout-btn" class="btn-logout-header" style="display: none;">Выйти</button>
+            <button id="save-btn" class="btn-save-header" style="display: none;">Сохранить страницу</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="main-section" id="page-contacts">
+            
+            <div class="section-header">
+                <h2>Контакты центра</h2>
+                <p class="subtitle">Свяжитесь с нами удобным для вас способом или посетите наш центр лично.</p>
+            </div>
+
+            <div class="grid-container">
+                    
+                <div class="achieve-card">
+                    <div class="card-icon">📍</div>
+                    <div class="card-text editable-zone">
+                        <h3>Наш адрес</h3>
+                        <p>188330, Ленинградская область, Гатчинский район, п. Кобралово, ул. Центральная, д. 4</p>
+                    </div>
+                </div>
+
+                <div class="achieve-card">
+                    <div class="card-icon">📞</div>
+                    <div class="card-text editable-zone">
+                        <h3>Телефон для справок</h3>
+                        <p>+7 (81371) 64-123<br><small>Пн-Пт: с 9:00 до 17:00</small></p>
+                    </div>
+                </div>
+
+                <div class="achieve-card">
+                    <div class="card-icon">✉️</div>
+                    <div class="card-text editable-zone">
+                        <h3>Электронная почта</h3>
+                        <p>kommunar-sch3@yandex.ru<br>tochkarosta@school3.ru</p>
+                    </div>
+                </div>
+
+                <div class="achieve-card">
+                    <div class="card-icon">👤</div>
+                    <div class="card-text editable-zone">
+                        <h3>Руководитель центра</h3>
+                        <p>Иванова Анна Сергеевна<br><small>Кабинет цифровых технологий</small></p>
+                    </div>
+                </div>
+
+            </div>
+            
+        </section>
+    </main>
+
+    <footer>
+        <p>© Точка Роста Коммунарской школы №3. 2026. Все права защищены.</p>
+    </footer>
+
+    <script src="admin.js"></script>
+</body>

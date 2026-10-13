@@ -1,0 +1,386 @@
+/* ==========================================================================
+   1. СБРОС БАЗОВЫХ ОТСТУПОВ И НАСТРОЙКА ШРИФТОВ
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px; 
+    line-height: 1.7;
+    color: #333333;
+    background-color: #fcfcfc; /* Мягкий светлый фон сайта */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   2. КЛЮЧЕВЫЕ КАДРЫ ДЛЯ АНИМАЦИЙ (KEYFRAMES)
+   ========================================================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleLine {
+    from { width: 0; }
+    to { width: 80px; } 
+}
+
+/* ==========================================================================
+   3. ШАПКА САЙТА (HEADER) И НАВИГАЦИЯ С БЕЛОЙ ПОЛОСОЙ
+   ========================================================================== */
+header {
+    background-color: #8b0000; 
+    color: #ffffff; 
+    padding: 20px 40px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* Делит шапку на 3 равные части */
+    align-items: center;
+    border-bottom: 4px solid #5a0000; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Выравниваем панель админа по правому краю, чтобы не ломать центр */
+.global-admin-panel {
+    justify-self: end;
+}
+
+
+
+header h1 {
+    font-size: 2rem; 
+    color: #ffffff; 
+    animation: scaleUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav a {
+    color: #ffffff; 
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    position: relative;
+    padding-bottom: 6px;
+    display: inline-block;
+    opacity: 0; 
+    transition: color 0.3s ease, transform 0.2s ease;
+    animation: fadeInLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Создание скрытой белой полосы под ссылками */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff; 
+    transform: scaleX(0); 
+    transform-origin: bottom right;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Появление белой полосы при наведении */
+nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Белая полоса для активной страницы */
+nav a.active::after {
+    transform: scaleX(1);
+}
+
+nav ul li:nth-child(1) a { animation-delay: 0.2s; }
+nav ul li:nth-child(2) a { animation-delay: 0.3s; }
+nav ul li:nth-child(3) a { animation-delay: 0.4s; }
+
+nav a:hover {
+    transform: translateY(-1px); 
+}
+
+/* ==========================================================================
+   4. КНОПКИ АДМИНИСТРАТОРА В ШАПКЕ
+   ========================================================================== */
+.global-admin-panel {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-admin-header, .btn-logout-header, .btn-save-header {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+/* Войти как админ (прозрачная с белой границей) */
+.btn-admin-header {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+.btn-admin-header:hover {
+    background: #ffffff;
+    color: #8b0000;
+}
+
+/* Выйти */
+.btn-logout-header {
+    background: #555555;
+    color: #ffffff;
+}
+.btn-logout-header:hover {
+    background: #333333;
+}
+
+/* Сохранить страницу (белая контрастная кнопка) */
+.btn-save-header {
+    background: #ffffff;
+    color: #8b0000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.btn-save-header:hover {
+    transform: scale(1.04);
+    background: #fff0f0;
+}
+
+/* ==========================================================================
+   5. ГЛАВНЫЙ КОНТЕНТ И СТИЛИЗАЦИЯ СЕКЦИЙ
+   ========================================================================== */
+main {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+section {
+    background: #ffffff;
+    padding: 50px 40px;
+    border: 1px solid rgba(139, 0, 0, 0.2); 
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    animation: scaleUp 0.5s ease-out forwards;
+}
+
+section h2 {
+    color: #8b0000; 
+    font-size: 2.5rem; 
+    margin-bottom: 20px;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+/* Красивая линия под заголовком */
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background-color: #8b0000;
+    width: 0;
+    animation: scaleLine 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+}
+
+section p {
+    color: #555555;
+    margin-bottom: 15px;
+    animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 10px auto 0 auto;
+}
+
+/* ==========================================================================
+   6. ИНТЕРФЕЙС РЕДАКТИРОВАНИЯ (ДЛЯ ADMIN.JS)
+   ========================================================================== */
+.editable-zone {
+    outline: none; /* Убираем стандартную синюю рамку браузера при фокусе */
+}
+
+/* Индикация для админа: включается через класс .edit-mode-active на секции */
+section.edit-mode-active .editable-zone {
+    border: 2px dashed rgba(139, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fffbfb; /* Легкий красноватый оттенок редактируемой зоны */
+    position: relative;
+}
+
+/* Добавляем маленькую плашку "Режим редактирования" для удобства */
+section.edit-mode-active .editable-zone::before {
+    content: 'Режим редактирования включен';
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: #8b0000;
+    color: #ffffff;
+    font-size: 0.75rem;
+    padding: 2px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* ==========================================================================
+   7. СЕТКА КАРТОЧЕК (ДЛЯ СТРАНИЦ ДОСТИЖЕНИЙ И КОНТАКТОВ)
+   ========================================================================== */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.achieve-card {
+    background: #ffffff;
+    border: 1px solid rgba(139, 0, 0, 0.15);
+    border-left: 5px solid #8b0000; /* Темно-красный акцент слева */
+    border-radius: 8px;
+    padding: 25px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+/* Каскадное появление карточек */
+.achieve-card:nth-child(1) { animation-delay: 0.2s; }
+.achieve-card:nth-child(2) { animation-delay: 0.3s; }
+.achieve-card:nth-child(3) { animation-delay: 0.4s; }
+.achieve-card:nth-child(4) { animation-delay: 0.5s; }
+
+.achieve-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(139, 0, 0, 0.08);
+}
+
+.card-icon {
+    font-size: 2rem;
+    background: rgba(139, 0, 0, 0.05);
+    padding: 10px;
+    border-radius: 50%;
+    line-height: 1;
+}
+
+.card-text {
+    flex: 1;
+}
+
+.card-text h3 {
+    color: #8b0000;
+    margin-bottom: 8px;
+    font-size: 1.3rem;
+}
+
+.card-text p {
+    color: #555555;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0; /* Сброс нижнего отступа внутри карточек */
+}
+
+/* ==========================================================================
+   8. ПОДВАЛ САЙТА (FOOTER)
+   ========================================================================== */
+footer {
+    background-color: #8b0000; 
+    color: #ffffff; 
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   9. АДАПТИВНОСТЬ (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .global-admin-panel {
+        width: 100%;
+        justify-content: center;
+    }
+    nav a::after {
+        display: none; /* Отключаем анимированную линию на мобильных устройствах */
+    }
+    nav a.active {
+        border-bottom: 2px solid #ffffff; /* Заменяем простой статической линией */
+        padding-bottom: 2px;
+    }
+    section {
+        padding: 30px 20px;
+    }
+    section h2 {
+        font-size: 2rem;
+    }
+}

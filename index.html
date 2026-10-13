@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Точка Роста — Главная</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Точка Роста</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Главная</a></li>
+                <li><a href="achievements2.html">Наши достижения</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Единая панель администратора -->
+        <div class="global-admin-panel">
+            <button id="auth-btn" class="btn-admin-header">Войти как админ</button>
+            <button id="logout-btn" class="btn-logout-header" style="display: none;">Выйти</button>
+            <button id="save-btn" class="btn-save-header" style="display: none;">Сохранить страницу</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Уникальный ID секции для Главной страницы: page-index -->
+        <section class="main-section" id="page-index">
+            
+            <!-- Инкапсулированная зона для редактирования контента -->
+            <div class="editable-zone">
+                <h2>Добро пожаловать в «Точку Роста»!</h2>
+                <p>Центр образования цифрового и гуманитарного профилей «Точка Роста» создан в рамках национального проекта «Образование». Наш центр призван обеспечить высокий уровень качества образования, внедрение новых методов обучения и воспитания.</p>
+                
+                <p>В нашем центре школьники учатся работать с современными технологиями, квадрокоптерами, 3D-принтерами, а также развивают навыки шахматного образования, программирования и оказания первой медицинской помощи.</p>
+            </div>
+            
+        </section>
+    </main>
+
+    <footer>
+        <p>© Точка Роста Коммунарской школы №3. 2026. Все права защищены.</p>
+    </footer>
+
+    <!-- Подключение внешнего файла скриптов -->
+    <script src="admin.js"></script>
+</body>
+</html>
+ 
